@@ -21,7 +21,7 @@ public class DBJobConfiguration {
 
     @Bean
     public Job helloJob2() {
-        return jobBuilderFactory.get("helloJob")
+        return jobBuilderFactory.get("helloJob2")
                 .start(step1())
                 .next(step2())
                 .build();
