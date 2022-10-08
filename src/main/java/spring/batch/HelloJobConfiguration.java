@@ -9,10 +9,8 @@ import org.springframework.batch.core.configuration.annotation.StepBuilderFactor
 import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.batch.repeat.RepeatStatus;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
-@Configuration
+//@Configuration
 @RequiredArgsConstructor
 public class HelloJobConfiguration {
 
@@ -20,7 +18,7 @@ public class HelloJobConfiguration {
 
     private final StepBuilderFactory stepBuilderFactory;
 
-    @Bean
+    // @Bean
     public Job helloJob() {
         return jobBuilderFactory.get("helloJob")
                 .start(helloStep1())
@@ -31,9 +29,9 @@ public class HelloJobConfiguration {
     /**
      * Step는 tasklet을 무한 반복시킴 그래서 RepeatStatus 값을 지정해줘야됨
      * null일 경우 기본적으로 한번실행하고 종료됨 RepeatStatus.FINISHED도 Null과 같은 의미
-     * */
+     */
 
-    @Bean
+    //@Bean
     public Step helloStep1() {
         return stepBuilderFactory.get("helloStep1")
                 .tasklet(new Tasklet() {
@@ -48,7 +46,8 @@ public class HelloJobConfiguration {
                     }
                 }).build();
     }
-    @Bean
+
+    //  @Bean
     public Step helloStep2() {
         return stepBuilderFactory.get("helloStep2")
                 .tasklet(new Tasklet() {

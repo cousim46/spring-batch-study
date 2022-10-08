@@ -9,17 +9,15 @@ import org.springframework.batch.core.configuration.annotation.StepBuilderFactor
 import org.springframework.batch.core.scope.context.ChunkContext;
 import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.batch.repeat.RepeatStatus;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
-@Configuration
+//@Configuration
 @RequiredArgsConstructor
 public class JobConfiguration {
 
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
 
-    @Bean
+    // @Bean
     public Job job() {
         return jobBuilderFactory.get("job")
                 .start(st1())
@@ -27,7 +25,7 @@ public class JobConfiguration {
                 .build();
     }
 
-    @Bean
+    // @Bean
     public Step st1() {
         return stepBuilderFactory.get("st1")
                 .tasklet(
@@ -41,7 +39,7 @@ public class JobConfiguration {
                 ).build();
     }
 
-    @Bean
+    //@Bean
     public Step st2() {
         return stepBuilderFactory.get("st2")
                 .tasklet(
